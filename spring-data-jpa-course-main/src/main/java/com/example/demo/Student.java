@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,29 +19,38 @@ public class Student {
   @GeneratedValue(
     strategy = GenerationType.SEQUENCE,
     generator = "student_sequence"
-  )  
+  )
+
   private Long id;
-  private String name;
+  private String firstName;
+  private String lastName;
   private String email;
   private Integer age;
   
-  public Student(Long id, String name, String email, Integer age) {
+  public Student(Long id, String firstName, String lastName, String email, Integer age) {
     this.id = id;
-    this.name = name;
+    this.firstName = firstName;
+    this.lastName = lastName;
     this.email = email;
     this.age = age;
+  }
+  public String getFirstName() {
+    return firstName;
+  }
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
+  public String getLastName() {
+    return lastName;
+  }
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
   }
   public Long getId() {
     return id;
   }
   public void setId(Long id) {
     this.id = id;
-  }
-  public String getName() {
-    return name;
-  }
-  public void setName(String name) {
-    this.name = name;
   }
   public String getEmail() {
     return email;
